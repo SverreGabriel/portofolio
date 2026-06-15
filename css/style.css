@@ -1,0 +1,349 @@
+:root {
+    --color-blue: #042940;
+    --color-dark-green: #005C53;
+    --color-green: #9FC131;
+    --color-lime: #DBF227;
+    --color-sand: #D6D58E;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    background-color: var(--color-blue);
+}
+h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: honeydew;
+    font-family: 'Space Grotesk';
+}
+h3 {
+    font-size: clamp(0.2rem, 2vw, 1.3rem);
+    font-weight: bold;
+    display: inline-block;
+    font-family: 'Space Grotesk';
+}
+p, button {
+    font-size: clamp(0.25rem, 2vw, 1.5rem);
+    color: honeydew;
+}
+p, button:not(#prev):not(#next) {
+    font-family: 'Inter';
+}
+h1 span {
+    transition: color 0.2s ease;
+}
+h1 span:hover {
+    color: var(--color-sand);
+}
+@keyframes spins {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+h1 .spin:hover {
+    display: inline-block;
+    animation: spins 2s linear infinite;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-blue);
+    width: 100%;
+    border-bottom: solid 2px var(--color-dark-green);
+    height: 8vh;
+    display: grid;
+    grid-template-columns: 20vw 1fr 20vw;
+    align-items: center;
+    z-index: 999;
+}
+.navigation {
+    display: flex;
+    justify-self: left;
+}
+.navigation ul {
+    display: flex;
+    padding-left: 0;
+}
+.navigation li {
+    list-style: none;
+}
+.navigation li a button,
+.social a button {
+    background: none;
+    border: none;
+    font-size: clamp(0.25rem, 2vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease-out;
+}
+.navigation li a button:hover,
+.social a button:hover {
+    color: var(--color-lime);
+}
+.social {
+    justify-self: right;
+    display: flex;
+    justify-content: center;
+}
+.name {
+    margin: 0 auto;
+    justify-self: center;
+}
+.name p {
+    font-size: 1em;
+}
+.link_photo1 {
+    width: 40px;
+}
+.link_photo2 {
+    width: 65px;
+    margin-top: -12px;
+}
+
+#me {
+    padding-top: 8vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+.bilde_sverre {
+    height: 62vh;
+    margin: 0 1vw;
+}
+.hero-button {
+    width: 20vw;
+    height: 7vh;
+    border: solid 1px var(--color-green);
+    border-radius: 10px;
+    background: none;
+    margin-left: 3vw;
+    margin-top: 6vh;
+    color: honeydew;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.hero-button:hover {
+    background-color: var(--color-lime);
+    color: var(--color-dark-green);
+    transform: translateY(-5px);
+}
+
+#projects {
+    padding-top: 2vh;
+}
+.title-project {
+    margin-left: 3vw;
+    margin-bottom: -3vw;
+}
+.project-div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+}
+.project-button-container {
+    width: 92vw;
+    overflow-x: scroll;
+    display: flex;
+    position: relative;
+    gap: 2vw;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.project-button-container ::-webkit-scrollbar {
+    display: none;
+}
+.project button{
+    padding: 0;
+    flex: 0 0 20em;
+    width: 45vw;
+    height: 70vh;
+    border-radius: 2em;
+    scroll-snap-align: start;
+    position: relative;
+    text-align: left;
+    border: 5px solid var(--color-dark-green);
+    overflow: hidden;
+}
+.project > a > button > img  {
+    height: 100%;
+}
+.info {
+    height: 30vh;
+    background-color: var(--color-dark-green);
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    border: 5px solid var(--color-dark-green);
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.tools {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--color-green);
+    bottom: 5px;
+    right: 30px;
+    z-index: 10;
+    border-radius: 8px;
+    padding-bottom: -2px;
+}
+.tools img {
+    height: 6vh;
+    margin: 2px;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+.tooltip-container .tooltip-box {
+  visibility: hidden;
+  width: auto;
+  background-color: var(--color-blue);
+  color: honeydew;
+  text-align: center;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 14px;
+
+
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  
+ 
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.tooltip-container:hover .tooltip-box {
+  visibility: visible;
+  opacity: 1;
+}
+.project-text {
+    width: 30vw;
+    font-size: 1rem;
+    margin-left: 20px;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.info h3 {
+    position: relative;
+    font-size: clamp(0.5rem, 2.5vw, 1.5rem);
+    margin-top: 15px;
+    margin-left: 8px;
+    margin-bottom: 0;
+    width: max-content;
+    color: white;
+}
+.info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40%;
+    height: .2em;
+    background-color: var(--color-green);
+    border-radius: 5px;
+}
+#prev, #next {
+    border-radius: 45%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    line-height: 110%;
+    background-color: var(--color-green);
+    color: var(--color-blue);
+    align-items: center;
+}
+
+#more {
+    column-count: 4;
+    margin-left: 2vw;
+    margin-top: 50px;
+}
+#more img{
+    
+    margin-left: 2vw;
+    width: 20vw;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    display: block;
+}
+.power {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.teknologiar {
+    margin-top: 50px;
+}
+.div-inndeling-kunnskap{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.inndeling-kunnskap {
+    display: block;
+    background-color: var(--color-dark-green);
+    border-radius: 5px;
+}
+
+@media (max-width: 1080px) {
+    .project button {
+        width: 90vw;
+    }
+    .project button img {
+        width: 100%;
+    }
+    .project-text{
+        width: 80vw;
+    }
+    .tools {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+}
+@media (max-width: 720px) {
+    #me {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .bilde_sverre {
+        height: 30vh;
+    }
+    .hero-button {
+        width: 40vw;
+    }
+}
+@media (max-width: 600px) {
+    .project button {
+        height: 40vh;
+    }
+    .info {
+        height: 18vh;
+    }
+    .project-text {
+        font-size: 0.25rem;
+        width: 60vw;
+    }
+    .info h3 {
+        font-size: clamp(0.5rem, 4vw, 1.5rem);
+    }
+    .tools img {
+        width: 8vw;
+        height: 8vw;
+    }
+}
